@@ -1,0 +1,7 @@
+feijoada;feijão,porco,couve
+strogonoff de frango;creme de leite,peito de frango
+strogonoff de gado;creme de leite,carne picada
+macarrão alho e óleo;macarrão,azeite,alho
+bife acebolado;bife,cebola
+lasanha de frango;massa de lasanha,frango desfiado,queijo,cebola,tomate
+lasanha de carne;massa de lasanha,carne moída,presunto,queijo,cebola,tomate

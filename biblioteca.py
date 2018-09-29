@@ -1,26 +1,48 @@
-def cadastrarLogin(fileLogin):
-    email = input("E-mail: ")
-    senha = input("Senha: ")
+class Usuario:
+    ide = 0
+    email = ""
+    senha = ""
+    nome = ""
 
+    def __init__(self, ide, email, senha, nome):
+        self.ide = ide
+        self.email = email
+        self.senha = senha
+        self.nome = nome
+
+class Ingredientes:
+    prato = ""
+    ingredientes = ""
+
+    def __init__(self, prato, ingredientes):
+        self.prato = prato
+        self.ingredientes = ingredientes
+
+def cadastrarUsuario(fileUsuario, usuario):
     from random import randint
-    id = str(randint(0,10))
+    ide = str(randint(0,10))
 
-    fileLogin.write(id+";"+email+";"+senha)
-
-    return id
-
-def validaLogin(fileLogin):
+    nome = input("Nome: ")
     email = input("E-mail: ")
     senha = input("Senha: ")
 
-    # passa pela validação
+    usuario = Usuario(ide, email, senha, nome)
+
+    fileUsuario.write(usuario.ide+";"+usuario.nome+";"+usuario.email+";"+usuario.senha+"\n")
+
+def validaUsuario(fileUsuario):
+    email = input("E-mail: ")
+    senha = input("Senha: ")
+
+    valida = fileUsuario.readline()
+    
+    print(valida)
 
     print("Validando login...\n")
-    print("Bem vindo de volta!\n")
 
     return
 
-def addCarrinho(filePrato, fileLista):
+def addCarrinho(filePratos, fileCarrinho):
     print("Os pratos disponíveis são: \n")
     # lista os pratos
 
@@ -33,20 +55,19 @@ def addCarrinho(filePrato, fileLista):
         if prato is "0":
             mais = False
         else:
-            fileLista.write(prato)
+            fileCarrinho.write(prato)
 
     print("Pratos adicionados com sucesso!")
 
     return
 
-def consultarLista(fileLista):
+def consultarCarrinho(fileCarrinho):
     print("Sua lista possui os seguintes pratos: \n")
     # listar os pratos da lista
-    gerarLista(fileLista)
 
     return
 
-def gerarLista(fileLista):
+def gerarLista(fileCarrinho, fileLista):
     gerar = True
     selec = 0
 
@@ -60,11 +81,11 @@ def gerarLista(fileLista):
         else:
             print("Opção não disponível\n")
     
-    print("Lista gerada com sucesso, consulte ingredientes.txt")
+    print("Lista gerada com sucesso, consulte lista.txt")
 
     return
 
-def limparCarrinho(fileLista):
+def limparCarrinho(fileCarrinho):
     # limpa a lista
     print("Carrinho limpo!")
 
